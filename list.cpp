@@ -20,7 +20,7 @@ address allocate(infotype x) {
     //-------------your code here-------------
     P->info = x;
     P->next = nullptr;
-
+    P->prev = nullptr;
     //----------------------------------------
     return P;
 }
@@ -99,10 +99,18 @@ void deleteFirst(List &L, address &P) {
     * FS : first element in List L is removed and is pointed by P
     */
     //-------------your code here-------------
-    your code here
-
-
-
+    if (isEmpty(L)) {
+        P = nullptr;
+    } else if (L.first == L.last) {
+        P = L.first;
+        L.first = nullptr;
+        L.last = nullptr;
+    } else {
+        P = L.first;
+        L.first = L.first->next;
+        L.first->prev = nullptr;
+        P->next = nullptr;
+    }
     //----------------------------------------
 }
 
@@ -112,8 +120,18 @@ void deleteLast(List &L, address &P) {
     * FS : last element in List L is removed and is pointed by P
     */
     //-------------your code here-------------
-    your code here
-
+    if (isEmpty(L)) {
+        P = nullptr;
+    } else if (L.first == L.last) {
+        P = L.last;
+        L.first = nullptr;
+        L.last = nullptr;
+    } else {
+        P = L.last;
+        L.last = L.last->prev;
+        L.last->next = nullptr;
+        P->prev = nullptr;
+    }
 
 
     //----------------------------------------
@@ -163,9 +181,17 @@ void deleteAfter(List &L, address Prec, address &P) {
     *      is removed and pointed by pointer P
     */
     //-------------your code here-------------
-    your code here
-
-
+    if (Prec == nullptr || Prec->next == nullptr) {
+        P = nullptr;
+    } else if (Prec->next->next == nullptr) {
+        deleteLast(L, P);
+    } else {
+        P = Prec->next;
+        Prec->next = P->next;
+        P->next->prev = Prec;
+        P->next = nullptr;
+        P->prev = nullptr;
+    }
     //----------------------------------------
 }
 
