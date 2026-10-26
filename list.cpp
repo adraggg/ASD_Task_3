@@ -30,7 +30,8 @@ void deallocate(address &P) {
     * FS : delete element pointed by P
     */
     //-------------your code here-------------
-    your code here
+    delete P;
+    P = nullptr;
 
 
     //----------------------------------------
