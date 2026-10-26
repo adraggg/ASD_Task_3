@@ -41,7 +41,14 @@ void insertFirst(List &L, address P) {
     * FS : element pointed by P became the first element in List L
     */
     //-------------your code here-------------
-    your code here
+    if (L.first == nullptr){
+        L.first = P;
+        L.last = P;
+    } else {
+        P->next = L.first;
+        L.first->prev = P;
+        L.first = P;
+    }
 
 
     //----------------------------------------
@@ -53,7 +60,14 @@ void insertLast(List &L, address P) {
     * FS : element pointed by P became the last element in List L
     */
     //-------------your code here-------------
-    your code here
+    if (L.first == nullptr){
+        L.first =P;
+        L.last = P;
+    } else {
+        P->prev = L.last;
+        L.last->next= P;
+        L.last = P;
+    }
 
 
     //----------------------------------------
@@ -68,7 +82,10 @@ address findElm(List L, infotype x) {
 
     address P;
     //-------------your code here-------------
-    your code here
+    P = L.first;
+    while (P != nullptr && P->info.ID != x.ID){
+        P = P->next;
+    }
 
 
     //----------------------------------------
@@ -125,7 +142,12 @@ void printInfo(List L) {
     *      call the view_data function from my_data.h to print the info
     */
     //-------------your code here-------------
-    your code here
+    address P = L.first;
+    while (P != nullptr){
+        cout << P->info.ID << endl;
+        P = P->next;
+    }
+
 
 
     //----------------------------------------
@@ -139,7 +161,14 @@ void insertAfter(List &L, address Prec, address P) {
     *      pointed by pointer Prec
     */
     //-------------your code here-------------
-    your code here
+    P->next = Prec->next;
+    P->prev = Prec;
+    if (Prec->next != nullptr){
+        Prec->next->prev = P;
+    } else {
+        L.last = P;
+    }
+    Prec->next = P;
 
     //----------------------------------------
 
