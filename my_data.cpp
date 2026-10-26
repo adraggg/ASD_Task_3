@@ -15,8 +15,10 @@ mytype create_data() {
     mytype d;
     // ===========================
     // YOUR CODE HERE
-    your code here
-
+    cout << "ID: ";
+    cin >> d.ID;
+    cout "nama: ";
+    cin >> d.nama;
 
 
 
@@ -32,7 +34,9 @@ void view_data(mytype d) {
 
     // ===========================
     // YOUR CODE HERE
-    your code here
+    cout << "ID: " << d.ID << endl;
+    cout << "Nama: " << d.nama << endl;
+    
 
 
 
@@ -50,7 +54,8 @@ void edit_data(mytype &d) {
 
     // ===========================
     // YOUR CODE HERE
-        your code here
+    cout << "Nama Baru: ";
+    cin >> d.nama;
 
 
 
