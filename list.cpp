@@ -32,8 +32,6 @@ void deallocate(address &P) {
     //-------------your code here-------------
     delete P;
     P = nullptr;
-
-
     //----------------------------------------
 }
 
