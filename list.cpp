@@ -6,9 +6,8 @@ void createList(List &L) {
     * FS : set first(L) and last(L) with Null
     */
     //-------------your code here-------------
-    your code here
-
-
+    L.first = nullptr;
+    L.last = nullptr;
     //----------------------------------------
 }
 
@@ -17,10 +16,10 @@ address allocate(infotype x) {
     * FS : return new list element with info = x and next element is Null
     */
 
-    address P;
+    address P = nullptr;
     //-------------your code here-------------
-    your code here
-
+    P->info = x;
+    P->next = nullptr;
 
     //----------------------------------------
     return P;
