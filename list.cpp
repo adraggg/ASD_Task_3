@@ -49,8 +49,6 @@ void insertFirst(List &L, address P) {
         L.first->prev = P;
         L.first = P;
     }
-
-
     //----------------------------------------
 }
 
