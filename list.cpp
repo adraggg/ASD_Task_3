@@ -16,7 +16,7 @@ address allocate(infotype x) {
     * FS : return new list element with info = x and next element is Null
     */
 
-    address P = nullptr;
+    address P = new Elmlist;
     //-------------your code here-------------
     P->info = x;
     P->next = nullptr;
@@ -142,7 +142,7 @@ void printInfo(List L) {
     //-------------your code here-------------
     address P = L.first;
     while (P != nullptr){
-        cout << P->info.ID << endl;
+         view_data(P->info);
         P = P->next;
     }
 
